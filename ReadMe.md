@@ -1,5 +1,5 @@
-#Web Application context and Root context. 
-##Task 1.1. Lifecycle and definition.
+# Web Application context and Root context. 
+## Task 1.1. Lifecycle and definition.
 
 Web Application context extended Application Context which is designed to work with the standard javax.servlet.ServletContext so it's able to communicate with the container.
 
@@ -9,8 +9,9 @@ There are many things possible to do with the ServletContext instance, for examp
 
 Also, depending on web application context capabilities may make your application a little harder to test, and you may need to use MockServletContext class for testing.
 
-###Difference between servlet and root context:
+### Difference between servlet and root context:
 Spring allows you to build multilevel application context hierarchies, so the required bean will be fetched from the parent context if it's not present in the current application context. In web apps as default there are two hierarchy levels, root and servlet contexts: 
+ 
  ![root context](https://i1.wp.com/www.dineshonjava.com/wp-content/uploads/2017/02/ApplicationContext-vs-WebApplicationContext.png?w=530&ssl=1)
 
 This allows you to run some services as the singletons for the entire application (Spring Security beans and basic database access services typically reside here) and another as separated services in the corresponding servlets to avoid name clashes between beans. For example, one servlet context will be serving the web pages, and another will be implementing a stateless web service.
@@ -46,9 +47,10 @@ Please note that if init-param will be omitted, then spring will use myservlet-s
 The WebApplicationContext is an extension of the plain ApplicationContext that has some extra features necessary for web applications. It differs from a normal ApplicationContext in that it is capable of resolving themes (see Using themes), and that it knows which Servlet it is associated with (by having a link to the ServletContext). The WebApplicationContext is bound in the ServletContext, and by using static methods on the RequestContextUtils class you can always look up the WebApplicationContext if you need access to it.
 
 By the way servlet and root context are both webApplicationContext:
+
 ![webApplicationContext](https://docs.spring.io/spring/docs/current/spring-framework-reference/images/mvc-context-hierarchy.png)
 
-###About WebApplicationContext:
+### About WebApplicationContext:
 WebApplicationContext is a web aware application context i.e. it has servlet context information. A <b>single</b> web application can have <b>multiple WebApplicationContext</b> and each <b>Dispatcher servlet</b> (which is the front controller of Spring MVC architecture) is associated with a <b>WebApplicationContext</b>. 
 
 The WebApplicationContext configuration file *-servlet.xml is specific to a DispatcherServlet. And since a web application can have more than one dispatcher servlet configured to serve multiple requests, there can be more than one webApplicationContext file per web application.
@@ -72,6 +74,7 @@ The root web application context is simply a centralized place to define shared 
 according to spring documentation, for many applications, having a single WebApplicationContext is simple and suffices. It is also possible to have a context hierarchy where one root WebApplicationContext is shared across multiple DispatcherServlet (or other Servlet) instances, each with its own child WebApplicationContext configuration.
 
 The root WebApplicationContext typically contains infrastructure beans, such as data repositories and business services that need to be shared across multiple Servlet instances. Those beans are effectively inherited and can be overridden (that is, re-declared) in the Servlet-specific child WebApplicationContext, which typically contains beans local to the given Servlet. The following image shows this relationship:
+
 ![webApplicationContext](https://docs.spring.io/spring/docs/current/spring-framework-reference/images/mvc-context-hierarchy.png)
 
 If an application context hierarchy is not required, applications can return all configuration through getRootConfigClasses() and null from getServletConfigClasses(). (<i>from me – inside child AbstractAnnotationConfigDispatcherServletInitializer</i>)
