@@ -9,6 +9,25 @@
             org.springframework.web.context.ContextLoaderListener
         </listener-class>
     </listener>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/rootApplicationContext.xml, /WEB-INF/blankContext.xml</param-value>
+<!-- In any case, only one context is defined, by combining all the bean definitions loaded from the specified locations -->
+    </context-param>
+    <context-param>
+        <param-name>contextClass</param-name>
+        <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+    </context-param>
+    <context-param>
+        <param-name>contextConfiguration</param-name>
+        <param-value>
+            com.epam.contexts.config.NormalWebAppConfig,
+            com.epam.contexts.config.RootApplicationConfig
+        </param-value>
+    </context-param>
+
+
     <!-- Uncommented, this disallows org.springframework.web.SpringServletContainerInitializer to run and execute
          application initializers. -->
     <!--<absolute-ordering>
