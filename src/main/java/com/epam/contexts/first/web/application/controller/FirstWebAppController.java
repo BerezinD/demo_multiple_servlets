@@ -1,4 +1,4 @@
-package com.epam.contexts.config.normal;
+package com.epam.contexts.first.web.application.controller;
 
 import com.epam.contexts.service.MessagingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +13,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Controller
-public class NormalController {
+public class FirstWebAppController {
 
-    private static Logger logger = Logger.getLogger(NormalController.class.getName());
+    private static Logger logger = Logger.getLogger(FirstWebAppController.class.getName());
 
     @Autowired
     private MessagingService messagingService;
