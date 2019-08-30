@@ -8,6 +8,33 @@
    http://www.springframework.org/schema/context
    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <context:component-scan base-package="com.epam.contexts.first.web.application" />
+    <context:component-scan base-package="com.epam.contexts.first.web.application.controller"/>
 
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix">
+            <value>/WEB-INF/view/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <map>
+                <entry key="/welcome">
+                    <ref bean="HandlerAdapter"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="HandlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+
+    <bean id="webContext" class="org.springframework.web.context.support.GenericWebApplicationContext"/>
+
+    <bean id="HandlerAdapter" class="com.epam.contexts.first.web.application.controller.FirstWebAppController">
+        <property name="messagingService" ref="messagingServiceBean"/>
+        <property name="webApplicationContext" ref="webContext"/>
+    </bean>
 </beans>
