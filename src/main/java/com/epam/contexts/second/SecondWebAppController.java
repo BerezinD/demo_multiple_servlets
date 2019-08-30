@@ -9,6 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 public class SecondWebAppController implements Controller {
     @Override
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return new ModelAndView("welcome", "message", "HI ALL!");
+        return new ModelAndView("not-welcome", "message", "HI ALL!");
     }
 }
