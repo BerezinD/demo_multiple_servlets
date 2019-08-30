@@ -24,5 +24,7 @@
         </property>
     </bean>
 
-    <bean id="HandlerAdapter" class="com.epam.contexts.webapps.second.SecondWebAppController"/>
+    <bean id="HandlerAdapter" class="com.epam.contexts.webapps.second.SecondWebAppController">
+        <property name="messagingService" ref="messagingServiceBean"/>
+    </bean>
 </beans>
