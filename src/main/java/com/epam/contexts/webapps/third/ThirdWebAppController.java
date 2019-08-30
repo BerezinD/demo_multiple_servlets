@@ -1,4 +1,4 @@
-package com.epam.contexts.third;
+package com.epam.contexts.webapps.third;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;

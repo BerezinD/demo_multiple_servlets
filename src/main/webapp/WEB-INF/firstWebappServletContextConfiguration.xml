@@ -28,7 +28,7 @@
 
     <bean id="webContext" class="org.springframework.web.context.support.GenericWebApplicationContext"/>
 
-    <bean id="HandlerAdapter" class="com.epam.contexts.first.web.application.controller.FirstWebAppController">
+    <bean id="HandlerAdapter" class="com.epam.contexts.webapps.first.FirstWebAppController">
         <property name="messagingService" ref="messagingServiceBean"/>
         <property name="webApplicationContext" ref="webContext"/>
     </bean>

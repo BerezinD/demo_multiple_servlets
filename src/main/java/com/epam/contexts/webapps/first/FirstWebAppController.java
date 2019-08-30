@@ -1,4 +1,4 @@
-package com.epam.contexts.first.web.application.controller;
+package com.epam.contexts.webapps.first;
 
 import com.epam.contexts.service.MessagingService;
 import org.springframework.web.context.ContextLoader;

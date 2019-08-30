@@ -1,4 +1,4 @@
-package com.epam.contexts.second;
+package com.epam.contexts.webapps.second;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
