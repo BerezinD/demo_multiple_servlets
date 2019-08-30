@@ -10,26 +10,19 @@
             <value>/WEB-INF/view/</value>
         </property>
         <property name="suffix">
-            <value>.jsp</value>
+            <value>.jsf</value>
         </property>
     </bean>
 
     <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <map>
-                <entry key="/welcome">
+                <entry key="/welcome-jsf">
                     <ref bean="HandlerAdapter"/>
                 </entry>
             </map>
         </property>
     </bean>
 
-    <bean id="HandlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
-
-    <bean id="webContext" class="org.springframework.web.context.support.GenericWebApplicationContext"/>
-
-    <bean id="HandlerAdapter" class="com.epam.contexts.first.web.application.controller.FirstWebAppController">
-        <property name="messagingService" ref="messagingServiceBean"/>
-        <property name="webApplicationContext" ref="webContext"/>
-    </bean>
+    <bean id="HandlerAdapter" class="com.epam.contexts.third.ThirdWebAppController"/>
 </beans>

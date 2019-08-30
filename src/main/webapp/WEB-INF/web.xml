@@ -13,8 +13,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            /WEB-INF/rootApplicationContext.xml,
-            /WEB-INF/firstWebappServletContextConfiguration.xml
+            /WEB-INF/rootApplicationContext.xml
         </param-value>
 <!-- In any case, only one context is defined, by combining all the bean definitions loaded from the specified locations -->
     </context-param>
@@ -31,9 +30,40 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>second-webapp</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/secondWebappServletContextConfiguration.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>third-webapp</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/thirdWebappServletContextConfiguration.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>first-webapp</servlet-name>
         <url-pattern>/1/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>second-webapp</servlet-name>
+        <url-pattern>/2/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>third-webapp</servlet-name>
+        <url-pattern>/3/*</url-pattern>
     </servlet-mapping>
 
 </web-app>

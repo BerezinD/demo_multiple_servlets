@@ -17,19 +17,12 @@
     <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <map>
-                <entry key="/welcome">
+                <entry key="/not-welcome">
                     <ref bean="HandlerAdapter"/>
                 </entry>
             </map>
         </property>
     </bean>
 
-    <bean id="HandlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
-
-    <bean id="webContext" class="org.springframework.web.context.support.GenericWebApplicationContext"/>
-
-    <bean id="HandlerAdapter" class="com.epam.contexts.first.web.application.controller.FirstWebAppController">
-        <property name="messagingService" ref="messagingServiceBean"/>
-        <property name="webApplicationContext" ref="webContext"/>
-    </bean>
+    <bean id="HandlerAdapter" class="com.epam.contexts.second.SecondWebAppController"/>
 </beans>
