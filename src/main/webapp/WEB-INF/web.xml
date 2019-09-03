@@ -10,12 +10,23 @@
         </listener-class>
     </listener>
 
+    <listener>
+        <listener-class>
+            org.springframework.web.context.request.RequestContextListener
+        </listener-class>
+    </listener>
+
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
             /WEB-INF/rootApplicationContext.xml
         </param-value>
 <!-- In any case, only one context is defined, by combining all the bean definitions loaded from the specified locations -->
+    </context-param>
+
+    <context-param>
+        <param-name>javax.faces.application.ProjectStage</param-name>
+        <param-value>Development</param-value>
     </context-param>
 
 <!--    Servlets        -->
@@ -44,7 +55,7 @@
     <servlet>
         <servlet-name>third-webapp</servlet-name>
         <servlet-class>
-            org.springframework.web.servlet.DispatcherServlet
+            javax.faces.webapp.FacesServlet
         </servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>

@@ -10,7 +10,7 @@
             <value>/WEB-INF/view/</value>
         </property>
         <property name="suffix">
-            <value>.jsf</value>
+            <value>.xhtml</value>
         </property>
     </bean>
 
@@ -26,5 +26,12 @@
 
     <bean id="HandlerAdapter" class="com.epam.contexts.webapps.third.ThirdWebAppController">
         <property name="messagingService" ref="messagingServiceBean"/>
+    </bean>
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="cache" value="false" />
+        <property name="viewClass" value="pl.cichon.andrzej.springmvcfacelets.common.mvc.FaceletView" />
+        <property name="prefix" value="/pages/" />
+        <property name="suffix" value=".xhtml" />
     </bean>
 </beans>
